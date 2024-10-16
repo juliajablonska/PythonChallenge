@@ -1,7 +1,7 @@
-name,date,hour,duration,category,comment
-tennis,23.10.2024,18:00,3.0,sport,Iga is the best
-cinema,17.11.2024,19:00,2.0,free time,Good movie
-walk,23.11.2024,7:00,2.0,wellbeing,Great start of the day
-meeting with client,15.10.2024,15:00,0.5,work,new project
-yoga,13.11.2024,7:00,1.0,wellbeing,Vinyasa
-team meeting,05.11.2024,12:00,1.0,work,year end review
+name,event_start,duration,category,comment
+tennis,2024-10-23 18:00:00,3:00:00,sport,Iga is the best
+cinema,2024-11-17 19:00:00,2:00:00,free time,Good movie
+walk,2024-11-23 07:00:00,1:00:00,wellbeing,Great start of the day
+meeting with client,2024-10-15 15:00:00,0:30:00,work,new project
+yoga,2024-11-13 07:00:00,1:00:00,wellbeing,Vinyasa
+team meeting,2024-11-05 12:00:00,1:00:00,work,year end review
