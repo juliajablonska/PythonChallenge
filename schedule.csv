@@ -1,7 +1,12 @@
 name,event_start,duration,category,comment
-tennis,2024-10-23 18:00:00,3:00:00,sport,Iga is the best
-cinema,2024-11-17 19:00:00,2:00:00,free time,Good movie
-walk,2024-11-23 07:00:00,1:00:00,wellbeing,Great start of the day
+tennis,2024-10-23 18:00:00,3:00:00,sport & dance,Iga is the best
+cinema,2024-11-17 19:00:00,2:00:00,family & friends,Good movie
+walk,2024-11-23 07:00:00,1:00:00,sport & dance,Great start of the day
 meeting with client,2024-10-15 15:00:00,0:30:00,work,new project
-yoga,2024-11-13 07:00:00,1:00:00,wellbeing,Vinyasa
-team meeting,2024-11-05 12:00:00,1:00:00,work,year end review
+yoga,2024-11-13 07:00:00,1:00:00,sport & dance,Vinyasa
+team meeting,2024-11-05 12:00:00,1:00:00,work,year-end review
+jogging,2024-12-10 07:30:00,0:45:00,sport & dance,Good start of the day
+theatre,2024-11-11 20:00:00,2:00:00,other,Amazing
+Afro workshops,2024-11-30 11:00:00,3:00:00,sport & dance,Amazing workshops
+rueda formation,2024-10-23 17:00:00,1:30:00,sport & dance,The best rueda
+bowling,2024-06-12 20:00:00,2:00:00,family & friends,-
