@@ -40,7 +40,7 @@ def event_category():
 def start_past_check(event_start_entry):
     current_time = dt.datetime.now()
     if event_start_entry >= current_time:
-        return
+        return event_start_entry
     else:
         while True:
             decision = input('The time you entered is in the past. Do you really want to add event in the past? Type "yes" or "no" ')
