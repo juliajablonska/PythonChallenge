@@ -53,6 +53,23 @@ def start_past_check(event_start_entry):
             else:
                 print('\nWrong input, please try again\n')
 
+# def time_overlap_check(event_start,duration):
+#     t1 = dt.datetime.strptime(duration,"%H:%M:%S")
+#     duration_timedelta = dt.timedelta(hours=t1.hour, minutes=t1.minute, seconds=t1.second)
+#     event_finish = event_start + duration_timedelta
+#     schedule = open_file()
+#     for row in schedule:
+#         old_event_start = row['event_start']
+#         t2 = dt.datetime.strptime(row['duration'],"%H:%M:%S")
+#         old_duration_timedelta = dt.timedelta(hours=t2.hour, minutes=t2.minute, seconds=t2.second)
+#         old_event_finish = old_event_start + old_duration_timedelta
+#         if old_event_start > event_finish and old_event_finish < event_start:
+#             return
+#         else:
+#             print('There is a clash in your calendar with the below event\n')
+#             print(schedule.iloc[row:row + 1, :6])
+#             return
+
 def time_start():
     date_entry = input('What is the date of the event? Enter it in YYYY-MM-DD format ')
     year, month, day = map(int, date_entry.split('-'))
@@ -66,7 +83,8 @@ def add_event():
     event_start_entry = time_start()
     event_start = start_past_check(event_start_entry)
     duration_minutes = int(input('What is the duration of the event? Please provide it in minutes '))
-    duration = str(dt.timedelta(seconds=duration_minutes*60))
+    duration = str(dt.timedelta(seconds = duration_minutes * 60))
+    time_overlap_check(event_start, duration)
     category = event_category()
     comment = input('What is the comment of the event? ')
     return name, event_start, duration, category, comment
@@ -98,7 +116,7 @@ def edit_value():
             return new_value, column
         elif column == 'duration':
             duration_minutes = int(input('What is the new duration of the event? Please provide it in minutes '))
-            new_value = str(dt.timedelta(seconds=duration_minutes*60))
+            new_value = str(dt.timedelta(seconds = duration_minutes * 60))
             return new_value, column
         elif column == 'category':
             new_value = event_category()
@@ -110,7 +128,7 @@ def remove_event(schedule):
     print('\n')
     row_to_remove = int(input('What is the index of the event that you would like to remove? '))
     print('\n')
-    print(schedule.iloc[row_to_remove:row_to_remove+1,:6])
+    print(schedule.iloc[row_to_remove:row_to_remove +1, :6])
     print('\n')
     while True:
         decision = input('Are you sure you want to remove this event? Please type "yes" or "no" ' )
