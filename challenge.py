@@ -1,3 +1,5 @@
+import csv
+
 from IPython.display import display
 import pandas as pd
 import datetime as dt
@@ -53,22 +55,31 @@ def start_past_check(event_start_entry):
             else:
                 print('\nWrong input, please try again\n')
 
-# def time_overlap_check(event_start,duration):
-#     t1 = dt.datetime.strptime(duration,"%H:%M:%S")
-#     duration_timedelta = dt.timedelta(hours=t1.hour, minutes=t1.minute, seconds=t1.second)
-#     event_finish = event_start + duration_timedelta
-#     schedule = open_file()
-#     for row in schedule:
-#         old_event_start = row['event_start']
-#         t2 = dt.datetime.strptime(row['duration'],"%H:%M:%S")
-#         old_duration_timedelta = dt.timedelta(hours=t2.hour, minutes=t2.minute, seconds=t2.second)
-#         old_event_finish = old_event_start + old_duration_timedelta
-#         if old_event_start > event_finish and old_event_finish < event_start:
-#             return
-#         else:
-#             print('There is a clash in your calendar with the below event\n')
-#             print(schedule.iloc[row:row + 1, :6])
-#             return
+def time_overlap_check(event_start,duration):
+    t1 = dt.datetime.strptime(duration,"%H:%M:%S")
+    duration_timedelta = dt.timedelta(hours=t1.hour, minutes=t1.minute, seconds=t1.second)
+    event_finish = event_start + duration_timedelta
+    schedule = open_file()
+
+    for _, row in schedule.iterrows():
+        other_event_start = dt.datetime.strptime(row['event_start'],"%Y-%m-%d %H:%M:%S")
+        t2 = dt.datetime.strptime(row['duration'],"%H:%M:%S")
+        other_duration_timedelta = dt.timedelta(hours=t2.hour, minutes=t2.minute, seconds=t2.second)
+        other_event_finish = other_event_start + other_duration_timedelta
+        if (other_event_start <= event_start < other_event_finish) or (
+                other_event_start < event_finish <= other_event_finish):
+            print('There is a clash in your calendar with the below event\n')
+            print(row)
+            print('\n')
+            decision = input('Do you really want to add the event with a clash? Type "yes" or "no" ')
+            decision = decision.lower()
+            if decision == 'yes':
+                return
+            elif decision == 'no':
+                time_start()
+                return
+            else:
+                print('\nWrong input, please try again\n')
 
 def time_start():
     date_entry = input('What is the date of the event? Enter it in YYYY-MM-DD format ')
